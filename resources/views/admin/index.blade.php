@@ -1,19 +1,21 @@
 @extends('master.admin')
 
 @section('content')
-<div class="p-4 sm:ml-64">
-    <div class="p-4 border-2  border-dashed rounded-lg dark:border-gray-700">
-       <div class="grid grid-cols-3 gap-4 mb-4">
-          <div class="flex items-center justify-center h-24 rounded bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">Nombre de vendeurs</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 "> 
+          <div class="bg-gray-800 h-[100px] rounded-lg py-3 text-center flex flex-col ">
+            <span class="text-white text-3xl mb-2 bg-gradient-to-r ">20</span>
+             <span class="text-white text-2xl">vendeurs</span>
           </div>
-          <div class="flex items-center justify-center h-24 rounded bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">Clients</p>
+          <div class="bg-gray-800 h-[100px] rounded-lg  py-3 text-center flex flex-col ">
+            <span class="text-white text-3xl mb-2">20</span>
+             <span class=" text-2xl text-white dark:text-gray-500">Clients</span>
           </div>
-          <div class="flex items-center justify-center h-24 rounded bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">Cours</p>
+          <div class="bg-gray-800 h-[100px] rounded-lg  py-3 text-center flex flex-col ">
+            <span class="text-white text-3xl mb-2">20</span>
+             <span class="text-2xl text-white dark:text-gray-500">Cours</span>
           </div>
-       </div>
+       
     </div>
- </div>
+ 
 @endsection

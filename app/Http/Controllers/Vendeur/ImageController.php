@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Vendeur;
 
+use App\Models\Cour;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,6 +11,15 @@ use Illuminate\Support\Facades\Auth;
 class ImageController extends Controller
 {
     //
+
+    public function images($id)
+    {
+        $cour = Cour::find($id);
+        return view('vendeurs.images.index', compact('cour'));
+    }
+
+
+
     public function store(Request $request)
     {
        /*  $request->validate([
@@ -32,6 +42,13 @@ class ImageController extends Controller
            // return $path;
         }
 
+        return redirect()->back();
+    }
+
+    public function delete($id)
+    {
+        $image = Image::find($id);
+        $image->delete();
         return redirect()->back();
     }
 }

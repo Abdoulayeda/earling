@@ -18,12 +18,14 @@ class CourController extends Controller
     public function store(Request $request, Cour $cour)
     {
          $request->validate([
-             'titre' => 'required',
+             'titre' => 'required|min:5',
              'prix' => 'required',
          ]);
          
          $cour->titre = $request->titre;
-         $cour->prix = $request->prix;
+         
+            $cour->prix = $request->prix;
+        
          $cour->user_id = auth()->user()->id;
          $cour->categorie_id = $request->categorie_id;
          $cour->save();

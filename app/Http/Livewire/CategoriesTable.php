@@ -8,47 +8,23 @@ use App\Models\Categorie;
 class CategoriesTable extends Component
 {
 
-    public $categories;
+    public $search = '';
    
-    public $editCategoryId;
-    public $isEditing = false;
-    public $name;
-    public $deleteCategoryId;
-    public $confirmDelete = false;
-
-
+  
     public function render()
     {
-        $this->categories = Categorie::all();
+        $categories = Categorie::where('nom', 'like', '%' .$this->search .'%')->latest()->get();
 
-        return view('livewire.categories-table');
+        return view('livewire.categories-table', compact('categories'));
     }
 
-    public function edit($id)
-    {
-        $this->editCategoryId = $id;
-        $this->isEditing = true;
-        $category = Categorie::find($id);
-        $this->name = $category->nom;
-    }
+   
+   
+    
 
+    
 
-    public function update()
-    {
-        $this->validate([
-            'name' => 'required',
-        ]);
+   
 
-        $categorie = Categorie::find($this->editCategoryId);
-        $categorie->nom = $this->name;
-        $categorie->save();
-
-        $this->isEditing = false;
-    }
-
-    public function deleteCategory($id)
-    {
-        Categorie::destroy($id);
-        session()->flash('message', 'La catégorie a été supprimée avec succès.');
-    }
+   
 }

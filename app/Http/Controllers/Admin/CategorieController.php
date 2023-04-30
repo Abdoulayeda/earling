@@ -19,11 +19,11 @@ class CategorieController extends Controller
     {
         $categorie->nom = $request->nom;
         $categorie->save();
-        return response()->json([
+       /*  return response()->json([
             'success' => true,
             'message' => 'Category updated successfully'
-        ]);
-    //return redirect()->route('categorie.index');
+        ]); */
+    return redirect()->back();
     } 
 
     public function update(Request $request,int $id)
